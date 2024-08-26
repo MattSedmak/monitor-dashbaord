@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
 import './cron';
-
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/Header';
 import { HeaderLogo } from '@/components/HeaderLogo';
@@ -31,12 +30,10 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <QueryProvider>
-          <Header>
-            <HeaderLogo />
-          </Header>
-          {children}
-        </QueryProvider>
+        <Header>
+          <HeaderLogo />
+        </Header>
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );

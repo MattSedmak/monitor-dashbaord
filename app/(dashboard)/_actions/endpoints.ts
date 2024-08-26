@@ -28,3 +28,12 @@ export const addEndpoint = async (formData: FormData) => {
 
   revalidatePath('/');
 };
+
+export const getEndpoints = async () => {
+  try {
+    const data = await prisma.endpoint.findMany();
+    return { data };
+  } catch (error) {
+    return { error: error };
+  }
+};

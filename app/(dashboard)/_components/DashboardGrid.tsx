@@ -1,11 +1,17 @@
+'use client';
 import React from 'react';
 import { DashboardCard } from './DashboardCard';
 import { RefreshAllButton } from '@/components/RefreshAllButton';
+import { getEndpoints } from '../_actions/endpoints';
 import { useQuery } from '@tanstack/react-query';
-import prisma from '@/prisma/client';
 
-export const DashboardGrid = async () => {
-  const endpoints = await prisma.endpoint.findMany();
+export const DashboardGrid = () => {
+  // const endpoints = await getEndpoints();
+  const { data, error, isPending } = useQuery({
+    queryKey: ['endpoints'],
+    queryFn: () => getEndpoints(),
+    refetchInterval: 300000,
+  });
 
   return (
     <div className='py-8 px4 lg:px-14'>
@@ -14,7 +20,7 @@ export const DashboardGrid = async () => {
         <RefreshAllButton />
       </div>
       <div className='max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-        {endpoints.map((endpoint: any) => (
+        {data?.data?.map((endpoint: any) => (
           <DashboardCard key={endpoint.id} {...endpoint} />
         ))}
       </div>
