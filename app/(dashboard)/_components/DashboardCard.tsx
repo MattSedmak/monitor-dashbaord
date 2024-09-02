@@ -13,6 +13,7 @@ import {
 import React from 'react';
 import { checkEndpoint } from '@/lib/checkEndpoint';
 import { useRouter } from 'next/navigation';
+import { deleteEndpoint } from '../_actions/endpoints';
 
 type DashBoardCardProps = Omit<Endpoint, 'createdAt'>;
 
@@ -73,7 +74,11 @@ export const DashboardCard = ({
           >
             <RefreshCcwIcon className='size-3' />
           </Button>
-          <Button className='h-auto py-2 px-2' variant='outline'>
+          <Button
+            className='h-auto py-2 px-2'
+            variant='outline'
+            onClick={() => deleteEndpoint(id)}
+          >
             <Trash2Icon className='size-3' />
           </Button>
         </div>

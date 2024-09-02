@@ -37,3 +37,13 @@ export const getEndpoints = async () => {
     return { error: error };
   }
 };
+
+export const deleteEndpoint = async (id: number) => {
+  try {
+    await prisma.endpoint.delete({ where: { id: id } });
+  } catch (error) {
+    return { error: error };
+  }
+
+  revalidatePath('/');
+};
