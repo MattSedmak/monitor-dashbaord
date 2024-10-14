@@ -1,3 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+I want to build an app for monitoring Apis/websites and show the status with a simple to use dashboard. (Work in progress).
 
-A app for monitoring if Api/websites are running wtih a simple dashboard. (Work in progress). Wanted to learn more and play around server components and server actions in Next 14.
+
+![monitor-screen-shot](https://github.com/user-attachments/assets/3a88f60f-1c00-459c-89a2-57a572d8fdb3)
