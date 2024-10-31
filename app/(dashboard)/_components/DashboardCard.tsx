@@ -36,7 +36,7 @@ export const DashboardCard = ({
       <CardHeader>
         <CardTitle className='flex justify-between items-center text-lg'>
           <span>{name}</span>
-          {status === 'UP' ? (
+          {status === 200 ? (
             <ZapIcon className='size-4 stroke-green-500' />
           ) : (
             <ZapOffIcon className='size-4 stroke-red-500' />
@@ -52,7 +52,7 @@ export const DashboardCard = ({
           {status ? (
             <span
               className={`${
-                status === 'UP' ? 'text-green-500' : 'text-red-500'
+                status === 200 ? 'text-green-500' : 'text-red-500'
               } font-bold ml-2`}
             >
               {status}
